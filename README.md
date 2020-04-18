@@ -1,0 +1,2 @@
+# architector
+Detects architecture
