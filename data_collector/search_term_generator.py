@@ -1,20 +1,19 @@
 styles = [
-	"cape cod",
-	"mediterranean",
-	"spanish",
-	"tuscan",
-	"victorian",
-	"craftsman",
-	"french",
-	"traditional",
+	# "contemporary",
+	# "tuscan",
+	# "victorian",
+	# "traditional",
+	# "mediterranean",
+	# "spanish",
+	# "cape cod",
+	# "craftsman",
+	# "french",
 	"modern",
-	"contemporary",
-	"melrose",
 ]
 
 location_modifiers = [
 	"los angeles",
-	"la",
+	# "la",
 	"venice",
 	"santa monica",
 	"santa barbara",
@@ -24,19 +23,19 @@ location_modifiers = [
 
 build_sizes = [
 	"duplex",
-	"small",
+	# "small",
 	"tiny",
-	"large",
+	# "large",
 	"mansion",
-	"single story",
-	"double story",
-	"3 story",
+	# "single story",
+	# "double story",
+	# "3 story",
 ]
 
 point_of_view_modifiers = [
-	"street",
+	# "street",
 	"front",
-	"back",
+	# "back",
 	"side"
 ]
 
@@ -47,16 +46,16 @@ class SearchTermGenerator(object):
 	# very ugly, but don't care
 	def generate(self):
 		for style in styles:
-			self.search_terms.append(style)
+			self.search_terms.append(f"'{style}' house")
 
 			for location in location_modifiers:
-				self.search_terms.append(f"'{style}' '{location}'")
+				self.search_terms.append(f"'{style}' house '{location}'")
 
 				for build_size in build_sizes:
-					self.search_terms.append(f"'{style}' '{location}' '{build_size}'")
+					self.search_terms.append(f"'{style}' house '{location}' '{build_size}'")
 
 					for pov in point_of_view_modifiers:
-						self.search_terms.append(f"'{style}' '{location}' '{build_size}' '{pov}'")
+						self.search_terms.append(f"'{style}' house '{location}' '{build_size}' '{pov}'")
 
 		return self.search_terms
 
